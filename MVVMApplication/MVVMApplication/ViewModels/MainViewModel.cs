@@ -42,6 +42,23 @@ public class MainViewModel : ViewModelBase
         get { return _isBusy; }
         set { SetProperty(ref _isBusy, value); }
     }
+
+    private bool _showLayerPopup;
+    /// <summary>
+    /// Layer Popup 출력 여부
+    /// </summary>
+    public bool ShowLayerPopup
+    {
+        get { return _showLayerPopup; }
+        set { SetProperty(ref _showLayerPopup, value); }
+    }
+
+    private string _controlName;
+    public string ControlName
+    {
+        get { return _controlName; }
+        set { SetProperty(ref _controlName, value); }
+    }
     
     /// <summary>
     /// Constructor
@@ -62,6 +79,14 @@ public class MainViewModel : ViewModelBase
         WeakReferenceMessenger.Default.Register<NavigationMessage>(this, OnNavigationMessage);
         // BusyMessage 수신 등록
         WeakReferenceMessenger.Default.Register<BusyMessage>(this, OnBusyMessage);
+        // LayerPopupMessage 수신 등록
+        WeakReferenceMessenger.Default.Register<LayerPopupMessage>(this, OnLayerPopupMessage);
+    }
+
+    private void OnLayerPopupMessage(object recipient, LayerPopupMessage message)
+    {
+        ShowLayerPopup = message.Value;
+        ControlName = message.ControlName;
     }
 
     /// <summary>

@@ -14,8 +14,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel>
-            <Button Command="{Binding BusyTestCommand}" Content="Busy Test" HorizontalAlignment="Right" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,5,0">
+            <Button Command="{Binding BusyTestCommand}" Content="Busy Test" />
+            <Button Command="{Binding LayerPopupTestCommand}" Content="Layer Popup Test" />
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontSize="20" Text="{Binding Title}" />

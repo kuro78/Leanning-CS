@@ -15,6 +15,8 @@ public class HomeViewModel : ViewModelBase
     /// </summary>
     public ICommand BusyTestCommand { get; set; }
 
+    public ICommand LayerPopupTestCommand { get; set; }
+
     /// <summary>
     /// constructor
     /// </summary>
@@ -27,6 +29,12 @@ public class HomeViewModel : ViewModelBase
     private void Init()
     {
         BusyTestCommand = new AsyncRelayCommand(OnBusyTestAsync);
+        LayerPopupTestCommand = new RelayCommand(OnLayerPopupTest);
+    }
+
+    private void OnLayerPopupTest()
+    {
+        WeakReferenceMessenger.Default.Send(new LayerPopupMessage(true) { ControlName = "AboutControl" });
     }
 
     /// <summary>
