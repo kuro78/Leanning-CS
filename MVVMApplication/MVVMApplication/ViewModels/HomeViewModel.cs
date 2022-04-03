@@ -10,6 +10,17 @@ namespace MVVMApplication.ViewModels;
 public class HomeViewModel : ViewModelBase
 {
     public static int Count { get; set; }
+
+    private decimal _price;
+    /// <summary>
+    /// 가격
+    /// </summary>
+    public decimal Price
+    {
+        get { return _price; }
+        set { SetProperty(ref _price, value); }
+    }
+
     /// <summary>
     /// Busy 테스트 커맨드
     /// </summary>
@@ -30,6 +41,8 @@ public class HomeViewModel : ViewModelBase
     {
         BusyTestCommand = new AsyncRelayCommand(OnBusyTestAsync);
         LayerPopupTestCommand = new RelayCommand(OnLayerPopupTest);
+
+        Price = 12345678;
     }
 
     private void OnLayerPopupTest()
