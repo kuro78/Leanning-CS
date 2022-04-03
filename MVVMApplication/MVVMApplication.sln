@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMApplication", "MVVMApplication\MVVMApplication.csproj", "{F1BEC816-E96C-48A8-8BC9-723666F10C86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMApplication", "MVVMApplication\MVVMApplication.csproj", "{F1BEC816-E96C-48A8-8BC9-723666F10C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMApplication.Controls", "MVVMApplication.Controls\MVVMApplication.Controls.csproj", "{39B39AC2-E152-4F7C-9E04-BADC5EFEB4F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F1BEC816-E96C-48A8-8BC9-723666F10C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1BEC816-E96C-48A8-8BC9-723666F10C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1BEC816-E96C-48A8-8BC9-723666F10C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B39AC2-E152-4F7C-9E04-BADC5EFEB4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B39AC2-E152-4F7C-9E04-BADC5EFEB4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B39AC2-E152-4F7C-9E04-BADC5EFEB4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B39AC2-E152-4F7C-9E04-BADC5EFEB4F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

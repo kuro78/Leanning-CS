@@ -4,23 +4,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MVVMApplication.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+      xmlns:controls="clr-namespace:MVVMApplication.Controls;assembly=MVVMApplication.Controls"
       Title="HomePage"
       d:DesignHeight="450" 
       d:DesignWidth="800"
       mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,5,0">
-            <Button Command="{Binding BusyTestCommand}" Content="Busy Test" />
-            <Button Command="{Binding LayerPopupTestCommand}" Content="Layer Popup Test" />
-        </StackPanel>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontSize="20" Text="{Binding Title}" />
             <TextBlock Text="{Binding Message}" />
         </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Button Command="{Binding BusyTestCommand}" Content="Busy Test" />
+            <Button Command="{Binding LayerPopupTestCommand}" Content="Layer Popup Test" />
+            <TextBox/>
+            <controls:AmountKoreanControl x:Name="akc" Amount="{Binding Price, Mode=TwoWay}"/>
+            <TextBlock Text="{Binding ElementName=akc, Path=Amount}"/>
+        </StackPanel>
+        
     </Grid>
 </Page>
