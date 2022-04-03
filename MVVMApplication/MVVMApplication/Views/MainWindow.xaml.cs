@@ -1,7 +1,7 @@
 ﻿using MVVMApplication.ViewModels;
 using System.Windows;
 
-namespace MVVMApplication;
+namespace MVVMApplication.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml

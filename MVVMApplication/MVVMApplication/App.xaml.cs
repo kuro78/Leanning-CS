@@ -35,6 +35,8 @@ public partial class App : Application
 
         // Register ViewModels
         services.AddTransient(typeof(MainViewModel));
+        services.AddTransient(typeof(HomeViewModel));
+        services.AddTransient(typeof(CustomerViewModel));
 
         return services.BuildServiceProvider();
     }
