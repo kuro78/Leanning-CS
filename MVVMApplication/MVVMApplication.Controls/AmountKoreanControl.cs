@@ -21,7 +21,12 @@ namespace MVVMApplication.Controls
         private TextBlock _koreanDisplayTextBlock;
         private TextBox _amountTextBox;
 
-        private bool _isWork = false;
+        private bool _isWork;
+
+        static AmountKoreanControl()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(AmountKoreanControl), new FrameworkPropertyMetadata(typeof(AmountKoreanControl)));
+        }
 
         /// <summary>
         /// 커스텀 컨트롤에 텡플릿이 적용될 때
@@ -32,11 +37,14 @@ namespace MVVMApplication.Controls
             _koreanDisplayTextBlock = GetTemplateChild(_textBlockName) as TextBlock;
             _amountTextBox = GetTemplateChild(_textBoxName) as TextBox;
 
-            if(_amountTextBox == null
+            if (_amountTextBox == null
                 || _koreanDisplayTextBlock == null)
             {
                 throw new NullReferenceException("Can not found part of control.");
             }
+
+            //Amount 초기값을 설정
+            DecimalToFormatString(Amount);
 
             _amountTextBox.TextChanged += AmountTextBox_TextChanged;
             _amountTextBox.PreviewKeyDown += AmountTextBox_PreviewKeyDown;
@@ -50,14 +58,14 @@ namespace MVVMApplication.Controls
         private void AmountTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             bool isDigit = false;
-            switch((int)e.Key)
+            switch ((int)e.Key)
             {
                 case int n when ((34 <= n && 43 >= n) || (74 <= n && 83 >= n)):
                     isDigit = true;
                     break;
             }
 
-            if(!(isDigit || e.Key == Key.Back
+            if (!(isDigit || e.Key == Key.Back
                 || e.Key == Key.Left || e.Key == Key.Right))
             {
                 e.Handled = true;
@@ -72,7 +80,7 @@ namespace MVVMApplication.Controls
         private void AmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // 중복실행방지
-            if(_isWork)
+            if (_isWork)
             {
                 return;
             }
@@ -80,7 +88,7 @@ namespace MVVMApplication.Controls
 
             // 전처리
             var numberTextOnly = _amountTextBox.Text.Trim().Replace(",", "");
-            if(decimal.TryParse(numberTextOnly, out decimal decimalValue))
+            if (decimal.TryParse(numberTextOnly, out decimal decimalValue))
             {
                 DecimalToFormatString(decimalValue);
             }
@@ -99,12 +107,12 @@ namespace MVVMApplication.Controls
         private void DecimalToFormatString(decimal decimalValue)
         {
             // DP 변경 이벤트로 호출되는 경우 초기화 전에 들어오는 것 방지
-            if(_amountTextBox == null)
+            if (_amountTextBox == null)
             {
                 return;
             }
             // StringFormat 출력
-            _amountTextBox.Text = string.Format("{0:#,###0", decimalValue);
+            _amountTextBox.Text = string.Format("{0:#,##0}", decimalValue);
             // 캐럿을 맨뒤로
             _amountTextBox.SelectionStart = _amountTextBox.Text.Length;
 
@@ -142,20 +150,20 @@ namespace MVVMApplication.Controls
             string numToKorea = sign;
             bool useDecimal = false;
 
-            for(int i = 0; i < strValue.Length; i++)
+            for (int i = 0; i < strValue.Length; i++)
             {
                 int level = strValue.Length - i;
-                if(strValue.Substring(i, 1) != "0")
+                if (strValue.Substring(i, 1) != "0")
                 {
                     useDecimal = true;
-                    if(((level - 1) % 4) == 0)
+                    if (((level - 1) % 4) == 0)
                     {
                         numToKorea += numberChar[int.Parse(strValue.Substring(i, 1))] + decimalChar[(level - 1) / 4];
                         useDecimal = false;
                     }
                     else
                     {
-                        if(strValue.Substring(i, 1) == "1")
+                        if (strValue.Substring(i, 1) == "1")
                         {
                             numToKorea += levelChar[(level - 1) % 4];
                         }
@@ -167,7 +175,7 @@ namespace MVVMApplication.Controls
                 }
                 else
                 {
-                    if((level % 4 == 0) && useDecimal)
+                    if ((level % 4 == 0) && useDecimal)
                     {
                         numToKorea += decimalChar[level / 4];
                         useDecimal = false;
@@ -199,7 +207,7 @@ namespace MVVMApplication.Controls
 
         private void SetAmount()
         {
-            if(_isWork)
+            if (_isWork)
             {
                 return;
             }

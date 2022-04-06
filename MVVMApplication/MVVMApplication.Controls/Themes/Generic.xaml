@@ -18,7 +18,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock x:Name="PART_KOREANDisplay"/>
+                            <TextBlock x:Name="PART_KoreanDisplay"/>
                             <TextBox Grid.Row="1" x:Name="PART_Amount"
                                      InputScope="Number"
                                      TextAlignment="Right"
