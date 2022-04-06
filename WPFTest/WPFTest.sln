@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTest", "WPFTest\WPFTest.csproj", "{9124C5EC-DFF9-49FF-9BF6-ED93AC02D788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAsyncSample", "EventAsyncSample\EventAsyncSample.csproj", "{7B80FA31-4354-41E5-BA8A-B97304E6BA85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9124C5EC-DFF9-49FF-9BF6-ED93AC02D788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9124C5EC-DFF9-49FF-9BF6-ED93AC02D788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9124C5EC-DFF9-49FF-9BF6-ED93AC02D788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9124C5EC-DFF9-49FF-9BF6-ED93AC02D788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B80FA31-4354-41E5-BA8A-B97304E6BA85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B80FA31-4354-41E5-BA8A-B97304E6BA85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B80FA31-4354-41E5-BA8A-B97304E6BA85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B80FA31-4354-41E5-BA8A-B97304E6BA85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7D7C99D-126C-46F1-A904-760426FAC943}
+	EndGlobalSection
+EndGlobal
