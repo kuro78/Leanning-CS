@@ -13,5 +13,10 @@ namespace EventAsyncSample
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //StartupUri = new Uri("/MainWindow.xaml", UriKind.RelativeOrAbsolute);
+            StartupUri = new Uri("/SecondWindow.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }
