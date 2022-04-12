@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace LargeFileReadSample;
@@ -17,7 +18,7 @@ public partial class YieldWindow : Window
         InitializeComponent();
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private async void Button_Click(object sender, RoutedEventArgs e)
     {
         var dialog = new OpenFileDialog()
         {
@@ -36,7 +37,21 @@ public partial class YieldWindow : Window
         }
 
         var models = GetModels(fileName);
-        listBox.ItemsSource = models;
+        // 모델을 한번에 ItemSource에 연결
+        //listBox.ItemsSource = models;
+        int count = 0;
+        // total count는 구할 수 없음
+        foreach(var model in models)
+        {
+            count++;
+            if (count % 1000 == 0)
+            {
+                CountTextBlock.Text = count.ToString("N0");
+                await Task.Delay(1);
+            }
+            listBox.Items.Add(model);
+        }
+        CountTextBlock.Text = count.ToString("N0");
     }
 
     private SampleData GetModelFromString(string item)
