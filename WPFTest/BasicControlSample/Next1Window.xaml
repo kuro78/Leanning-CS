@@ -1,0 +1,141 @@
+﻿<Window x:Class="BasicControlSample.Next1Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BasicControlSample"
+        mc:Ignorable="d"
+        Title="Next1Window" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- SelectionChanged 사용 -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="ListBox5"/>
+                <TextBlock
+                    Margin="4,0"
+                    HorizontalAlignment="Right"
+                    Text="{Binding SelectedListItem.Name}"/>
+                <Button
+                    Grid.Row="1"
+                    Command="{Binding DeleteListItemCommand}"
+                    Content="Delete ListItem"/>
+            </Grid>
+            <ListBox
+                Grid.Row="1"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding Persons}"
+                SelectedItem="{Binding SelectedListItem, Mode=TwoWay}">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:InvokeCommandAction  Command="{Binding ListSelectionChangedCommand}" PassEventArgsToCommand="True"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ListBox>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="ComboBox5"/>
+                <TextBlock
+                    Margin="4,0"
+                    HorizontalAlignment="Right"
+                    Text="{Binding SelectedComboItem.Name}"/>
+                <Button
+                    Grid.Row="1"
+                    Command="{Binding DeleteComboItemCommand}"
+                    Content="Delete ComboItem"/>
+            </Grid>
+            <ComboBox
+                Grid.Row="3"
+                VerticalAlignment="Top"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding Persons}"
+                SelectedItem="{Binding SelectedComboItem, Mode=TwoWay}">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:InvokeCommandAction Command="{Binding ComboSelectionChangedCommand}" PassEventArgsToCommand="True"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ComboBox>
+            
+            <!-- Detail -->
+            <TextBlock
+                Grid.Column="1"
+                Margin="4,0"
+                Text="Detail"/>
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="4,0"
+                VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Name" />
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{Binding SelectedListItem.Name}"/>
+                <TextBlock
+                    Grid.Row="1"
+                    Text="Sex"/>
+                <ComboBox
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,2,0,0"
+                    DisplayMemberPath="Name"
+                    ItemsSource="{Binding Sexs}"
+                    SelectedValue="{Binding SelectedListItem.Sex, Mode=TwoWay}"
+                    SelectedValuePath="Value"/>
+                <TextBlock
+                    Grid.Row="2"
+                    Text="Age"/>
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="0,2,0,0"
+                    Text="{Binding SelectedListItem.Age}"/>
+                <TextBlock
+                    Grid.Row="3"
+                    Text="Address"/>
+                <ComboBox
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="0,2,0,0"
+                    DisplayMemberPath="Name"
+                    ItemsSource="{Binding Addressies}"
+                    SelectedValue="{Binding SelectedListItem.Address, Mode=TwoWay}"
+                    SelectedValuePath="Code"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
+
+    
