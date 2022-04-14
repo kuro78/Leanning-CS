@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListVsObservableCollection"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWPF", "CoreWPF\CoreWPF.csproj", "{FEE1A3FF-982E-4591-ADB3-43C55030822C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfContextMenu", "CoreWpfContextMenu\CoreWpfContextMenu.csproj", "{39A1D26C-BB48-4875-970A-BC5D199CF907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{FEE1A3FF-982E-4591-ADB3-43C55030822C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEE1A3FF-982E-4591-ADB3-43C55030822C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEE1A3FF-982E-4591-ADB3-43C55030822C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A1D26C-BB48-4875-970A-BC5D199CF907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A1D26C-BB48-4875-970A-BC5D199CF907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A1D26C-BB48-4875-970A-BC5D199CF907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A1D26C-BB48-4875-970A-BC5D199CF907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
