@@ -3,15 +3,18 @@ using Microsoft.Toolkit.Mvvm.Messaging;
 using System.Windows.Input;
 using MVVMApplication.Bases;
 using MVVMApplication.Models;
+using MVVMApplication.Services;
 
 namespace MVVMApplication.ViewModels;
 
 public class CustomerViewModel : ViewModelBase
 {
+    private readonly IDatabaseService _dbService;
     public ICommand BackCommand { get; set; }
 
-    public CustomerViewModel()
+    public CustomerViewModel(IDatabaseService databaseService)
     {
+        _dbService = databaseService;
         Init();
     }
 
@@ -26,8 +29,11 @@ public class CustomerViewModel : ViewModelBase
         WeakReferenceMessenger.Default.Send(new NavigationMessage("GoBack"));
     }
 
-    public override void OnNavigated(object sender, object navigatedEventArgs)
+    public override async void OnNavigated(object sender, object navigatedEventArgs)
     {
         Message = "Navigated";
+
+        var datas = await _dbService.GetDatasAsync<Customer>("Select * from [Customers]");
+        Customers = datas;
     }
 }

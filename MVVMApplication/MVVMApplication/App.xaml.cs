@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MVVMApplication.Controls;
+using MVVMApplication.Services;
 using MVVMApplication.ViewModels;
 using System;
 using System.Windows;
@@ -34,11 +35,18 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
 
+        var connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+
         // Register ViewModels
         services.AddTransient(typeof(MainViewModel));
         services.AddTransient(typeof(HomeViewModel));
         services.AddTransient(typeof(CustomerViewModel));
+        
+        // Register Controls
         services.AddTransient(typeof(AboutControl));
+
+        // Register IDatabaseService SingleTon
+        services.AddSingleton<IDatabaseService, SqlService>(obj => new SqlService(connectionString));
 
         return services.BuildServiceProvider();
     }
