@@ -1,5 +1,7 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using Microsoft.Toolkit.Mvvm.Messaging;
+using System.Collections.Generic;
 using System.Windows.Input;
 using MVVMApplication.Bases;
 using MVVMApplication.Models;
@@ -7,9 +9,13 @@ using MVVMApplication.Services;
 
 namespace MVVMApplication.ViewModels;
 
-public class CustomerViewModel : ViewModelBase
+public partial class CustomerViewModel : ViewModelBase
 {
     private readonly IDatabaseService _dbService;
+
+    [ObservableProperty]
+    private IList<Customer> _customers;
+
     public ICommand BackCommand { get; set; }
 
     public CustomerViewModel(IDatabaseService databaseService)
