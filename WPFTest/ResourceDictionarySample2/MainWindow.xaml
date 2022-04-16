@@ -1,0 +1,45 @@
+﻿<Window x:Class="ResourceDictionarySample2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResourceDictionarySample2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Style="{StaticResource TitleTextBlock}" Text="Hello Resource Dictionary2" />
+            <Border Background="{StaticResource RedBrush}">
+                <TextBlock Foreground="{StaticResource WhiteBrush}" Text="Item1" />
+            </Border>
+            <TextBlock Foreground="{StaticResource RedBrush}" Text="Item2" />
+            <Image Source="{StaticResource BitmapMara}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10,0">
+            <HeaderedContentControl
+                Content="{Binding Source={StaticResource kuro78Person}, Path=Id}"
+                FontSize="20"
+                Header="Id"
+                HeaderTemplate="{StaticResource HeaderTemplate}" />
+            <HeaderedContentControl
+                Content="{Binding Source={StaticResource kuro78Person}, Path=Name}"
+                FontSize="20"
+                Header="Name"
+                HeaderTemplate="{StaticResource HeaderTemplate}" />
+            <HeaderedContentControl
+                Content="{Binding Source={StaticResource kuro78Person}, Path=Sex}"
+                FontSize="20"
+                Header="Sex"
+                HeaderTemplate="{StaticResource HeaderTemplate}" />
+            <HeaderedContentControl
+                Content="{Binding Source={StaticResource kuro78Person}, Path=Phone}"
+                FontSize="20"
+                Header="Phone"
+                HeaderTemplate="{StaticResource HeaderTemplate}" />
+        </StackPanel>
+    </Grid>
+</Window>
