@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeFileReadSample", "Larg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListVsObservableCollection", "ListVsObservableCollection\ListVsObservableCollection.csproj", "{E9953446-6FD7-479B-897C-E2AB144D4C75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWPF", "CoreWPF\CoreWPF.csproj", "{FEE1A3FF-982E-4591-ADB3-43C55030822C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWPF", "CoreWPF\CoreWPF.csproj", "{FEE1A3FF-982E-4591-ADB3-43C55030822C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfContextMenu", "CoreWpfContextMenu\CoreWpfContextMenu.csproj", "{39A1D26C-BB48-4875-970A-BC5D199CF907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfContextMenu", "CoreWpfContextMenu\CoreWpfContextMenu.csproj", "{39A1D26C-BB48-4875-970A-BC5D199CF907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfLocalization", "CoreWpfLocalization\CoreWpfLocalization.csproj", "{6E7241F2-DF77-41CF-82A6-1ACC100AB336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfLocalization", "CoreWpfLocalization\CoreWpfLocalization.csproj", "{6E7241F2-DF77-41CF-82A6-1ACC100AB336}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCombo", "WpfCombo\WpfCombo.csproj", "{F5898666-2938-404D-BC93-6B1F03AD13BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{6E7241F2-DF77-41CF-82A6-1ACC100AB336}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E7241F2-DF77-41CF-82A6-1ACC100AB336}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E7241F2-DF77-41CF-82A6-1ACC100AB336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
