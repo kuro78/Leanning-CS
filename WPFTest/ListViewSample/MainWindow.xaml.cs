@@ -38,6 +38,10 @@ namespace ListViewSample
                     var listView2 = new ListViewCustomView();
                     listView2.Show();
                     break;
+                case "GriupView":
+                    var groupView = new ListViewGroup();
+                    groupView.Show();
+                    break;
             }
         }
     }
