@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfLocalization", "Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCombo", "WpfCombo\WpfCombo.csproj", "{F5898666-2938-404D-BC93-6B1F03AD13BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteSample", "SqliteSample\SqliteSample.csproj", "{3FAE8749-BB4D-4A74-AD1A-CCCF04F399DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceDictionarySample", "ResourceDictionarySample\ResourceDictionarySample.csproj", "{9992C0A4-406C-496F-A482-0213AB9FAB15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5898666-2938-404D-BC93-6B1F03AD13BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FAE8749-BB4D-4A74-AD1A-CCCF04F399DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FAE8749-BB4D-4A74-AD1A-CCCF04F399DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FAE8749-BB4D-4A74-AD1A-CCCF04F399DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FAE8749-BB4D-4A74-AD1A-CCCF04F399DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9992C0A4-406C-496F-A482-0213AB9FAB15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9992C0A4-406C-496F-A482-0213AB9FAB15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9992C0A4-406C-496F-A482-0213AB9FAB15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9992C0A4-406C-496F-A482-0213AB9FAB15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
