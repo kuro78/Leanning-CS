@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridNumberColumn", "Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundServiceSample", "BackgroundServiceSample\BackgroundServiceSample.csproj", "{9B8F5700-4E46-4925-BE57-09FD046C9E46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReorderingListBoxSample", "ReorderingListBoxSample\ReorderingListBoxSample.csproj", "{916912B2-43DC-49A5-9CB7-EFC8756E5714}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{9B8F5700-4E46-4925-BE57-09FD046C9E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8F5700-4E46-4925-BE57-09FD046C9E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B8F5700-4E46-4925-BE57-09FD046C9E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{916912B2-43DC-49A5-9CB7-EFC8756E5714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{916912B2-43DC-49A5-9CB7-EFC8756E5714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{916912B2-43DC-49A5-9CB7-EFC8756E5714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{916912B2-43DC-49A5-9CB7-EFC8756E5714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
