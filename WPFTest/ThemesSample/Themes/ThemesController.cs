@@ -58,9 +58,9 @@ public static class ThemesController
     }
 
     /// <summary>
-    /// Registry를 통해 Window에서 라이트/다크 모드 사용 여부 확인'
+    /// Registry를 통해 Window에서 라이트/다크 모드 사용 여부 확인
     /// HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize의 AppsUseLightTheme 값이 0이면 다크 테마 사용중
-    /// htttps://stacoverflow.com/questions/51334674/how-to-detect-windows-10-light-dark-mode-in-wind32-application
+    /// https://stackoverflow.com/questions/51334674/how-to-detect-windows-10-light-dark-mode-in-wind32-application
     /// </summary>
     /// <returns></returns>
     public static bool? IsDarkThemeApplied()
