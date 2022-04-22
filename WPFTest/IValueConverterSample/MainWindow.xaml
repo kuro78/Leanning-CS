@@ -3,31 +3,170 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:cvt="clr-namespace:IValueConverterSample.Converters"
+        xmlns:cvt="clr-namespace:IValueConverterSample.Converters" 
+        xmlns:local="clr-namespace:IValueConverterSample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="550"
+        Background="#000000">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
             <cvt:BooleanToVisibliityConverter x:Key="BooleanToVisibilityConverter"/>
             <cvt:StringForamtConverter x:Key="StringFormatConverter"/>
             <cvt:MultiValueConverter x:Key="MultiValueConverter"/>
-            <cvt:FileSizeToFormatConverter x:Key="FileSizeToFormatconverter"/>
+            <cvt:FileSizeToFormatConverter x:Key="FileSizeToFormatConverter"/>
+        
+            <Style TargetType="{x:Type ListBoxItem}" x:Key="FileListBoxItem">
+                <Setter Property="Foreground" Value="#CDBE91"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <Border x:Name="border" Background="Transparent" BorderBrush="#795c28" BorderThickness="1" Padding="10 6 10 6">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding Name}"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Length, Converter={StaticResource FileSizeToFormatConverter}}"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="#F0E6D2"/>
+                                    <Setter TargetName="border" Property="Background" Value="#33EDE1C8"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Foreground" Value="#F0E6D2"/>
+                                    <Setter TargetName="border" Property="Background" Value="#33EDE1C8"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type ListBox}" x:Key="FileListBox">
+                <Setter Property="Margin" Value="0 30 0 0"/>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="ItemContainerStyle" Value="{StaticResource FileListBoxItem}"/>
+                <Setter Property="ItemsSource" Value="{Binding Files}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBox}">
+                            <ScrollViewer>
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <StackPanel HorizontalAlignment="Center">
         <StackPanel Orientation="Horizontal">
-            <ToggleButton x:Name="tgl" Content="CLICK"/>
-            <TextBlock Text="Hello" Visibility="{Binding ElementName=tgl, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <ToggleButton x:Name="tgl" 
+                          Content="CLICK"
+                          Width="60"
+                          Height="30"
+                          Margin="30,22,0,0"
+                          Background="#1E2328"
+                          BorderThickness="2,2,2,2"
+                          FontSize="12"
+                          FontWeight="Bold"
+                          Foreground="#CDBE91"
+                          HorizontalContentAlignment="Left"
+                          VerticalAlignment="Top"/>
+            <TextBlock Text="Hello!" 
+                       Foreground="#EFE6D4"
+                       FontWeight="Bold"
+                       FontSize="18"
+                       HorizontalAlignment="Left"
+                       Margin="30,22,0,0"
+                       Visibility="{Binding ElementName=tgl, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Slider x:Name="slider2" Width="300" 
+                    Minimum="0" Maximum="100"
+                    IsMoveToPointEnabled="True"
+                    IsSnapToTickEnabled="True"
+                    TickFrequency="0.01"
+                    SmallChange="0.01"
+                    LargeChange="0.01"
+                    MinHeight="26"
+                    MaxHeight="26"
+                    Height="26"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="20,20,0,0"
+                    Value="20"
+                    Focusable="False"
+                    Stylus.IsPressAndHoldEnabled="False"
+                    SelectionStart="{Binding Path=Minimum, RelativeSource={RelativeSource self}}"
+                    SelectionEnd="{Binding Path=Value, RelativeSource={RelativeSource self}}"/>
+            <TextBlock Grid.Column="1"
+                       Margin="10,20,0,0"
+                       Foreground="#9B9688"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Text="{Binding ElementName=slider2, Path=Value, Converter={StaticResource StringFormatConverter}}"/>
+        </Grid>
+
+        <CheckBox x:Name="chk1" 
+                      Content="Yes, I do consent."
+                      Margin="25,20,0,0"
+                      Cursor="Hand"
+                      FocusVisualStyle="{x:Null}"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      FontWeight="Bold"
+                      Foreground="#A09B8C"
+                      FontSize="11"
+                      BorderBrush="#705427"
+                      BorderThickness="1"/>
+
         <StackPanel Orientation="Horizontal">
-            <Slider x:Name="slider2" Width="300" Minimum="0" Maximum="100"/>
-            <TextBlock Text="{Binding ElementName=slider2, Path=Value, Converter={StaticResource StringFormatConverter}}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <CheckBox x:Name="chk1" Content="Checked"/>
-            <TextBox x:Name="txt" MinWidth="200"/>
-            <Button Content="SUBMIT">
+            <TextBlock Text="Applicant's Name: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Foreground="#A09B8C"
+                           FontSize="11"
+                           FontWeight="Bold"
+                           Margin="20,0,0,0"/>
+            <TextBox x:Name="txt" 
+                         Width="130"
+                         Height="30"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Bottom"
+                         Foreground="#A09B8C"
+                         CaretBrush="#A08B8C"
+                         FontWeight="Bold"
+                         MaxLength="15"
+                         TextAlignment="Center"
+                         Margin="30,0,0,0"
+                         Background="Transparent"
+                         BorderBrush="#3A2B14"
+                         BorderThickness="0,0,0,2"
+                         SnapsToDevicePixels="True"/>
+            <Button Content="SUBMIT"
+                    Margin="30,0,0,0"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Width="70">
                 <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource MultiValueConverter}">
                         <Binding ElementName="chk1" Path="IsChecked"/>
@@ -36,13 +175,8 @@
                 </Button.IsEnabled>
             </Button>
         </StackPanel>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="{Binding Name}"/>
-            <TextBlock Grid.Column="1" Text="{Binding Length, Converter={StaticResource FileSizeToFormatConverter}}"/>
-        </Grid>
+
+        <ListBox Style="{StaticResource FileListBox}" />
+
     </StackPanel>
 </Window>
