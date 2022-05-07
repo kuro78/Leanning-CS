@@ -1,0 +1,57 @@
+﻿<Window x:Class="Behavior.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="180"
+              Height="300">
+            <ScrollViewer x:Name="Target_ScrollViewer">
+                <StackPanel Margin="5">
+                    <TextBlock Text="A"/>
+                    <TextBlock Text="B"/>
+                    <TextBlock Text="C"/>
+                    <TextBlock Text="D"/>
+                    <TextBlock Text="E"/>
+                    <TextBlock Text="F"/>
+                    <TextBlock Text="G"/>
+                    <TextBlock Text="H"/>
+                    <TextBlock Text="I"/>
+                    <TextBlock Text="J"/>
+                    <TextBlock Text="K"/>
+                    <TextBlock Text="L"/>
+                    <TextBlock Text="M"/>
+                    <TextBlock Text="N"/>
+                    <TextBlock Text="O"/>
+                    <TextBlock Text="P"/>
+                    <TextBlock Text="Q"/>
+                    <TextBlock Text="R"/>
+                    <TextBlock Text="S"/>
+                    <TextBlock Text="T"/>
+                    <TextBlock Text="U"/>
+                    <TextBlock Text="V"/>
+                    <TextBlock Text="W"/>
+                    <TextBlock Text="X"/>
+                    <TextBlock Text="Y"/>
+                    <TextBlock Text="Z"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <Button Content="↑" FontWeight="Bold" FontSize="18"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Margin="5,5,22,5">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:CallMethodAction TargetObject="{Binding ElementName=Target_ScrollViewer}" 
+                                                MethodName="ScrollToHome"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
