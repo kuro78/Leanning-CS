@@ -1,0 +1,10 @@
+﻿<Application x:Class="DependencyInversionSample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DependencyInversionSample"
+             xmlns:common="clr-namespace:DependencyInversionSample.Common;assembly=DependencyInversionSample.Common"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <common:DynamicResouce x:Key="DR" />
+    </Application.Resources>
+</Application>

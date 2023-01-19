@@ -1,0 +1,15 @@
+﻿<Window x:Class="DependencyInversionSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DependencyInversionSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="5">
+            <TextBlock Text="{Binding Source={StaticResource DR}, Path=[wrd_Hello]}" />
+            <TextBlock Text="{Binding Source={StaticResource DR}, Path=[msg_DIDescription]}" />
+        </StackPanel>
+    </Grid>
+</Window>
